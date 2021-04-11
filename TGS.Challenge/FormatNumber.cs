@@ -27,6 +27,14 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
+            if (value > 1000000000)
+            {
+                throw new ArgumentOutOfRangeException("The number must not be greater than 1000000000.");
+            }
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException("The number must not be less than 0.");
+            }
             var stringValue = value.ToString();
             var temp = new StringBuilder();
             var commaValue = new StringBuilder();
