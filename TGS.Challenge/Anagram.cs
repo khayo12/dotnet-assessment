@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 
 namespace TGS.Challenge
 {
@@ -24,20 +25,20 @@ namespace TGS.Challenge
      */
     public class Anagram
     {
-      public bool AreAnagrams(string word1, string word2)
-      {
+        public bool AreAnagrams(string word1, string word2)
+        {
             var charList1 = new List<char>();
             var charList2 = new List<char>();
 
-            foreach(var c in word1)
+            foreach (var c in word1.ToLower().Trim())
             {
-                if(!charList1.Contains(c))
+                if (!charList1.Contains(c))
                 {
                     charList1.Add(c);
-                }                
+                }
             }
 
-            foreach (var c in word2)
+            foreach (var c in word2.ToLower().Trim())
             {
                 if (!charList2.Contains(c))
                 {
@@ -48,12 +49,25 @@ namespace TGS.Challenge
             charList1.Sort();
             charList2.Sort();
 
-            if (charList1.ToString().Equals(charList2.ToString()))
+            var a = new StringBuilder();
+            var b = new StringBuilder();
+
+            foreach (var c in charList1)
+            {
+                a.Append(c);
+            }
+
+            foreach (var c in charList2)
+            {
+                b.Append(c);
+            }
+
+            if (a.ToString() == b.ToString())
             {
                 return true;
             }
 
             return false;
-      }
+        }
     }
 }
