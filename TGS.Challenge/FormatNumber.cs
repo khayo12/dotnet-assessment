@@ -28,19 +28,24 @@ namespace TGS.Challenge
         public string Format(int value)
         {
             var stringValue = value.ToString();
+            var temp = new StringBuilder();
             var commaValue = new StringBuilder();
             var length = stringValue.Length;
-            var index = 1;
-            for (int i = length - 1; i > 0; i--)
+            var index = 0;
+            for (int i = length - 1; i >= 0; i--)
             {
-                commaValue.Append(stringValue[i]);
+                temp.Append(stringValue[i]);
                 index++;
                 if (index % 3 == 0)
                 {
-                    commaValue.Append(",");
+                    temp.Append(",");
                 }
             }
-            commaValue.Remove(length, 1);
+
+            for (int i = temp.Length - 1; i >= 0; i--)
+            {
+                commaValue.Append(temp[i]);
+            }
 
             return commaValue.ToString();
         }
