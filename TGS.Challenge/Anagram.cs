@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -29,6 +30,16 @@ namespace TGS.Challenge
         private readonly string specialCharacters = @"[,.?!-;:'() {}|&%$#@^*+_`~<>/\\]";
         public bool AreAnagrams(string word1, string word2)
         {
+            if (string.IsNullOrWhiteSpace(word1))
+            {
+                throw new ArgumentException("The word1 is required.");
+            }
+
+            if (string.IsNullOrWhiteSpace(word2))
+            {
+                throw new ArgumentException("The word2 is required.");
+            }
+
             var charList1 = new List<char>();
             var charList2 = new List<char>();
 
