@@ -36,7 +36,7 @@ namespace TGS.Challenge
             {
                 temp.Append(stringValue[i]);
                 index++;
-                if (index % 3 == 0)
+                if (index % 3 == 0 && i != 0)
                 {
                     temp.Append(",");
                 }
