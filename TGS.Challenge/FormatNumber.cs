@@ -29,16 +29,19 @@ namespace TGS.Challenge
         {
             var stringValue = value.ToString();
             var commaValue = new StringBuilder();
+            var length = stringValue.Length;
             var index = 1;
-            foreach(var c in stringValue)
+            for (int i = length - 1; i > 0; i--)
             {
-                commaValue.Append(c);
+                commaValue.Append(stringValue[i]);
                 index++;
-                if(index%3==0)
+                if (index % 3 == 0)
                 {
                     commaValue.Append(",");
                 }
             }
+            commaValue.Remove(length, 1);
+
             return commaValue.ToString();
         }
     }
