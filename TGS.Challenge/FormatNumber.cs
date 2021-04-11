@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace TGS.Challenge
 {
@@ -26,7 +27,19 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
-            return string.Empty;
+            var stringValue = value.ToString();
+            var commaValue = new StringBuilder();
+            var index = 1;
+            foreach(var c in stringValue)
+            {
+                commaValue.Append(c);
+                index++;
+                if(index%3==0)
+                {
+                    commaValue.Append(",");
+                }
+            }
+            return commaValue.ToString();
         }
     }
 }
